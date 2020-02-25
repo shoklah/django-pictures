@@ -1,0 +1,69 @@
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <title>Create Album</title> 
+    </head> 
+    <body>   
+        <h1 align="center">Create Album</h1>
+
+        {% if msg %}
+        <p align="center">{{ msg }}<p>
+        {% endif %}
+    
+        <form method = "post" enctype="multipart/form-data"> 
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <ul>
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+    
+            {% for hidden_field in form.hidden_fields %}
+                {% if hidden_field.errors %}
+                <ul>
+                    {% for error in hidden_field.errors %}
+                    <li>(Hidden field {{ hidden_field.name }}) {{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {{ hidden_field }}
+            {% endfor %}
+
+            <table align="center">
+
+                <tr>
+                    <th>{{ form.title.label_tag }}</th>
+                    <td>
+                    {{ form.title.errors }}
+                    {{ form.title }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>{{ form.description.label_tag }}</th>
+                    <td>
+                    {{ form.description.errors }}
+                    {{ form.description }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>{{ form.cover.label_tag }}</th>
+                    <td>
+                    {{ form.cover.errors }}
+                    {{ form.cover }}
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center">
+                <input class="btn btn-default" type="submit" value="Create">
+                <a class="btn btn-default" href="/home/">Back</a>
+            </div>
+        </form>
+    </body> 
+</html>

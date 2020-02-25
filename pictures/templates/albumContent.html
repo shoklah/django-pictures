@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body>
+        <h1 align="center">{{ album.title }}</h1>
+        <p align="center">{{ album.description }}</p>
+
+        <div align="center">
+            <a class="btn btn-default" href="/album/">Back</a>
+        </div>
+        {% if photos %}
+            {% for photo in photos %}
+                <p
+                    align="center"
+                    style="padding-top: 20px; font-size: large"
+                ><strong>{{ photo.title }}</strong></palign="center">
+                <p><img src="{{ photo.image.url }}" width="100%" alt="img"></p>
+            {% endfor %}
+        {% endif %}
+        <div align="center">
+            <a align="center" class="btn btn-default" href="/album/">Back</a>
+        
+    </body>
+</html>

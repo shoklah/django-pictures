@@ -1,0 +1,48 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <title>Title</title>
+    </head>
+    <body>
+        {% csrf_token %}
+        <h1 style="text-align: center; margin-top: 10%">Home</h1>
+        <table align="center">
+            <tr>
+                <td>
+                    <a class="btn btn-default btn-lg"
+                        style="width: 200px" 
+                        href="/photos/new"
+                    >Upload Picture</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <a class="btn btn-default btn-lg"
+                        style="width: 200px"
+                        href="/photos/"
+                    >Pictures Gallery</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <a class="btn btn-default btn-lg"
+                        style="width: 200px"
+                        href="/album/new"
+                    >Create Album</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <a class="btn btn-default btn-lg"
+                        style="width: 200px"
+                        href="/album/"
+                    >Album Gallery</a>
+                </td>
+            </tr>
+    </body>
+</html>
